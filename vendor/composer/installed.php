@@ -3,7 +3,7 @@
         'name' => 'kevin/lavalust-crud',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '92faf41cded0db3c7087f9a74687302d0217d918',
+        'reference' => 'ec6f72951c84b5b2c0d6bbb902e8218a07daedae',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'kevin/lavalust-crud' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '92faf41cded0db3c7087f9a74687302d0217d918',
+            'reference' => 'ec6f72951c84b5b2c0d6bbb902e8218a07daedae',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
