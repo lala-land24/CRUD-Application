@@ -1,28 +1,19 @@
-# Use PHP 8.1 with Apache
-FROM php:8.1-apache
+FROM php:8.2-apache
 
-# Install required system packages and PHP extensions
-RUN apt-get update && apt-get install -y unzip git curl \
-    && docker-php-ext-install mysqli pdo pdo_mysql \
-    && a2enmod rewrite
+# Install PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Install Composer globally
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
 
-# Set working directory
-WORKDIR /var/www/html
+# Allow .htaccess overrides
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
-# Copy composer files first (better for caching)
-COPY composer.json composer.lock* ./
+# Copy app files
+COPY . /var/www/html/
 
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
-# Copy the rest of the project
-COPY . /var/www/html
-
-# Fix permissions so Apache can read/write
-RUN chown -R www-data:www-data /var/www/html
-
-# Expose Apache default port
 EXPOSE 80
