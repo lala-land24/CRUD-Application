@@ -56,23 +56,17 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |   $database variable.
 |   Example: $database['another_example'] = array('key' => 'value')
 */
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-use Dotenv\Dotenv;
-
-// Load .env from project root
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
 
 $database['main'] = array(
-    'driver'    => $_ENV['DB_DRIVER'] ?? 'mysql',
-    'hostname'  => $_ENV['DB_HOST'] ?? 'localhost',
-    'port'      => $_ENV['DB_PORT'] ?? '3306',
-    'username'  => $_ENV['DB_USERNAME'] ?? 'root',
-    'password'  => $_ENV['DB_PASSWORD'] ?? '',
-    'database'  => $_ENV['DB_DATABASE'] ?? 'mockdata',
-    'charset'   => $_ENV['DB_CHARSET'] ?? 'utf8mb4',
-    'dbprefix'  => $_ENV['DB_PREFIX'] ?? '',
+    'driver'	=> 'mysql',
+    'hostname'	=> 'sql12.freesqldatabase.com',
+    'port'		=> '3306',
+    'username'	=> 'sql12799140',
+    'password'	=> 'Mfb8KNpqXs',
+    'database'	=> 'sql12799140',
+    'charset'	=> 'utf8mb4',
+    'dbprefix'	=> '',
+    // Optional for SQLite
     'path'      => ''
 );
 
