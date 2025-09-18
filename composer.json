@@ -1,0 +1,14 @@
+{
+  "name": "kevin/lavalust-crud",
+  "description": "LavaLust CRUD web app with FreeSQLDatabase deployment",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "vlucas/phpdotenv": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
