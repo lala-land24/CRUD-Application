@@ -56,9 +56,6 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |   $database variable.
 |   Example: $database['another_example'] = array('key' => 'value')
 */
-require_once __DIR__ . '/../../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
 
 $database['main'] = array(
     'driver'    => getenv['DB_DRIVER'] ?? 'mysql',
